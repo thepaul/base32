@@ -17,7 +17,7 @@ var (
 	decoding = pflag.BoolP("-decode", "d", false,
 		"Decode instead of encode")
 	useHex = pflag.BoolP("-hex", "x", false,
-		"Expect hexadecimal input (or, if decoding, produce hexadecimal output")
+		"Expect hexadecimal input (or, if decoding, produce hexadecimal output)")
 
 	base32Encoding = base32.NewEncoding("abcdefghijklmnopqrstuvwxyz234567").WithPadding(base32.NoPadding)
 )
