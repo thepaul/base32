@@ -9,6 +9,7 @@ import (
 	"fmt"
 	"io"
 	"os"
+	"strings"
 
 	"github.com/spf13/pflag"
 )
@@ -26,7 +27,7 @@ func decodeAllFromBase32(r io.Reader, w io.Writer, useHex bool) (err error) {
 	scanner := bufio.NewScanner(r)
 	scanner.Split(bufio.ScanWords)
 	for scanner.Scan() {
-		word := scanner.Text()
+		word := strings.ToLower(scanner.Text())
 		result, err := base32Encoding.DecodeString(word)
 		if useHex {
 			_, err = fmt.Fprintf(w, "%x\n", result)
